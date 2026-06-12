@@ -8,7 +8,7 @@
 - Status: PASS
 
 ## Step 2: Install in temporary sandbox
-- Sandbox: /work/hui/civilization3.0/projects/release-evidence-card-cli/tmp-smoke-1781282031665
+- Sandbox: /work/hui/civilization3.0/projects/release-evidence-card-cli/tmp-smoke-1781282291387
 - Status: PASS
 
 ## Step 3: Entry Smoke Test

@@ -81,6 +81,12 @@ function scoreReadme(content) {
   return score;
 }
 
+function getBinStatus(pkg, targetDir) {
+  if (!pkg?.bin) return "MISSING";
+  const binPaths = typeof pkg.bin === "string" ? [pkg.bin] : Object.values(pkg.bin);
+  return binPaths.some(binPath => existsSync(path.resolve(targetDir, binPath))) ? "YES" : "MISSING";
+}
+
 /* ─── Check Command ─────────────────────────────────────────── */
 
 async function cmdCheck(targetDir) {
@@ -94,28 +100,7 @@ async function cmdCheck(targetDir) {
   const hasEngines = pkg?.engines?.node ? "YES" : "MISSING";
   const isPrivate = pkg?.private ? "YES" : "NO";
 
-  // Bin entry validation: check that the referenced file actually exists
-  let hasBin = "MISSING";
-  if (pkg?.bin) {
-    const binPaths = typeof pkg.bin === "string"
-      ? [pkg.bin]
-      : Object.values(pkg.bin);
-    let anyBinFileExists = false;
-    let anyBinEntry = false;
-    for (const binPath of binPaths) {
-      anyBinEntry = true;
-      const fullPath = path.resolve(targetDir, binPath);
-      if (existsSync(fullPath)) {
-        anyBinFileExists = true;
-        break;
-      }
-    }
-    if (anyBinEntry && anyBinFileExists) {
-      hasBin = "YES";
-    } else if (anyBinEntry && !anyBinFileExists) {
-      hasBin = "MISSING";
-    }
-  }
+  const hasBin = getBinStatus(pkg, targetDir);
 
   // Governance files
   const govChecks = await checkGovernanceFiles(targetDir);
@@ -315,7 +300,7 @@ async function cmdDemo() {
     if (existsSync(pkgPath)) {
       try {
         const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
-        lines.push(`Bin entry: ${pkg.bin ? "YES" : "MISSING"}`);
+        lines.push(`Bin entry: ${getBinStatus(pkg, fixPath)}`);
         lines.push(`Private: ${pkg.private ? "YES" : "NO"}`);
       } catch {}
     }

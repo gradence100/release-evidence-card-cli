@@ -1,5 +1,5 @@
 # Release Evidence Card
-**Target directory:** /work/hui/civilization3.0/projects/release-evidence-card-cli/fixtures/test-empty-gov-1781282033738
+**Target directory:** /work/hui/civilization3.0/projects/release-evidence-card-cli/fixtures/test-empty-gov-1781282293149
 **Generated:** 2026-06-12
 
 ## Package Info
