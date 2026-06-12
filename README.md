@@ -48,7 +48,7 @@ Expected first screen from `node src/index.js demo`:
 # Release Evidence Card CLI - Demo
 Fixture: failing
 Score: 0/5
-Bin entry: YES
+Bin entry: MISSING
 Governance files: 0/5 present
 
 Fixture: passing
