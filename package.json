@@ -1,0 +1,29 @@
+{
+  "name": "release-evidence-card-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gradence100/release-evidence-card-cli"
+  },
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "A local CLI that generates release evidence cards for npm CLI projects in under five minutes",
+  "bin": {
+    "release-evidence-card": "./src/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "src/",
+    "fixtures/"
+  ],
+  "scripts": {
+    "demo": "node src/index.js run --entry \"node src/index.js check\"",
+    "check": "node src/index.js check",
+    "test": "node --test test/",
+    "pack:smoke": "node src/index.js run --entry \"node --version\" --dir fixtures/passing"
+  },
+  "devDependencies": {},
+  "license": "MIT"
+}

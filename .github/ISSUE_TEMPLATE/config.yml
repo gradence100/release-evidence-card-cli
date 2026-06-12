@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Release Evidence Card CLI Discussions
+    url: https://github.com/gradence100/release-evidence-card-cli/discussions
+    about: Please ask questions and start discussions here.

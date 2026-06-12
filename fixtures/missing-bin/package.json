@@ -1,0 +1,9 @@
+{
+  "name": "missing-bin-cli",
+  "version": "1.0.0",
+  "description": "A fixture without a bin entry in package.json",
+  "main": "index.js",
+  "engines": { "node": ">=18" },
+  "license": "MIT",
+  "private": true
+}
